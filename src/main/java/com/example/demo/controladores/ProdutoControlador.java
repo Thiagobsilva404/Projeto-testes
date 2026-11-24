@@ -29,5 +29,10 @@ public class ProdutoControlador {
         Produto salvo = produtoServico.salvar(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> tratarArgumentoInvalido(IllegalArgumentException exception) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
+    }
 }
 
