@@ -25,10 +25,8 @@ jobs:
           cache: maven
 
       - name: Executar testes
-      run: |
-          chmod +x ./mvnw
-          ./mvnw test
-
+          run: ./mvnw test
+          
       - name: Publicar resultados dos testes
         if: always()
         uses: dorny/test-reporter@v2
